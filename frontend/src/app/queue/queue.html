@@ -1,0 +1,12 @@
+<div class="page">
+  <h1>Queue List</h1>
+  <p><strong>Doctor ID:</strong> {{ doctorId }}</p>
+
+  <div class="queue-card" *ngFor="let entry of queueEntries">
+    <p><strong>Position:</strong> {{ entry.position }}</p>
+    <p><strong>User ID:</strong> {{ entry.user }}</p>
+    <p><strong>Doctor ID:</strong> {{ entry.doctor }}</p>
+  </div>
+
+  <p *ngIf="queueEntries.length === 0">No queue entries found.</p>
+</div>

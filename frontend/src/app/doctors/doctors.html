@@ -1,0 +1,14 @@
+<div class="page">
+  <h1>Doctors List</h1>
+
+  <button class="load-btn" (click)="loadDoctors()">Load Doctors</button>
+
+  <div class="cards">
+    <div class="doctor-card" *ngFor="let doctor of doctors">
+      <h3>Doctor #{{ doctor.id }}</h3>
+      <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+      <p><strong>Room:</strong> {{ doctor.room_number }}</p>
+      <button class="queue-btn" (click)="checkQueue(doctor.id)">Check Queue</button>
+    </div>
+  </div>
+</div>

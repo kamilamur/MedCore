@@ -1,0 +1,8 @@
+<h2>My Appointments</h2>
+<div *ngFor="let a of appointments">
+  <p>{{ a.doctor_name }} - {{ a.appointment_date }} {{ a.appointment_time }}</p>
+  <p>Status: {{ a.status }}</p>
+  <button *ngIf="a.status === 'upcoming'" (click)="cancel(a.id)">
+    Cancel
+  </button>
+</div>

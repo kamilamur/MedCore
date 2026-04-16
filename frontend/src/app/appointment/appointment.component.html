@@ -1,0 +1,6 @@
+<h2>Book Appointment</h2>
+<input [(ngModel)]="doctor" placeholder="Doctor ID">
+<input type="date" [(ngModel)]="date">
+<input type="time" [(ngModel)]="time">
+<button (click)="book()">Book</button>
+<p>{{ message }}</p>

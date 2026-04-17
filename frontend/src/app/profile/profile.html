@@ -1,0 +1,20 @@
+<div class="profile-page">
+    <div class="profile-header">
+      <h1>Привет, {{ userData?.user?.username }}!</h1>
+      <button class="logout-btn" (click)="onLogout()">Выйти</button>
+    </div>
+  
+    <div class="reminders-section">
+      <h3>Твои записи:</h3>
+      <ul class="reminder-list">
+        @for (rem of userData?.reminders; track rem.id) {
+          <li class="reminder-item">
+            <div class="reminder-info">
+              <h4>{{ rem.title }}</h4>
+              <span>{{ rem.appointment_date | date:'medium' }}</span>
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+</div>

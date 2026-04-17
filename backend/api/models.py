@@ -18,3 +18,13 @@ class QueueEntry(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.doctor.user.username}"
+    
+class Reminder(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reminders')
+    appointment_info = models.CharField(max_length=255)
+    remind_time = models.DateTimeField()
+    is_sent = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Reminder for {self.user.username} at {self.remind_at}"
+# Create your models here.

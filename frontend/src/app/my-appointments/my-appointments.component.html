@@ -1,8 +1,20 @@
-<h2>My Appointments</h2>
-<div *ngFor="let a of appointments">
-  <p>{{ a.doctor_name }} - {{ a.appointment_date }} {{ a.appointment_time }}</p>
-  <p>Status: {{ a.status }}</p>
-  <button *ngIf="a.status === 'upcoming'" (click)="cancel(a.id)">
-    Cancel
-  </button>
+<div class="appointments-page">
+  <div class="appointments-container">
+    <h2>My Appointments</h2>
+    <p class="subtitle">Here you can view and manage your appointments</p>
+    <div class="appointment-item" *ngFor="let a of appointments">
+      <div class="appointment-info">
+        <h3>{{ a.doctor_name }}</h3>
+        <p><strong>Date:</strong> {{ a.appointment_date }}</p>
+        <p><strong>Time:</strong> {{ a.appointment_time }}</p>
+        <p>
+          <strong>Status:</strong>
+          <span [ngClass]="a.status">{{ a.status }}</span>
+        </p>
+      </div>
+      <button *ngIf="a.status === 'upcoming'" (click)="cancel(a.id)">
+        Cancel
+      </button>
+    </div>
+  </div>
 </div>

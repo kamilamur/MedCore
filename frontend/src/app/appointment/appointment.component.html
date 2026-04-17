@@ -1,6 +1,14 @@
-<h2>Book Appointment</h2>
-<input [(ngModel)]="doctor" placeholder="Doctor ID">
-<input type="date" [(ngModel)]="date">
-<input type="time" [(ngModel)]="time">
-<button (click)="book()">Book</button>
-<p>{{ message }}</p>
+<div class="appointment-page">
+  <div class="appointment-card">
+    <h2>Book Appointment</h2>
+    <p class="subtitle">Choose a doctor, date, and time for your visit</p>
+    <label for="doctor">Doctor ID</label>
+    <input id="doctor" [(ngModel)]="doctor" type="number" placeholder="Enter doctor ID">
+    <label for="date">Date</label>
+    <input id="date" type="date" [(ngModel)]="date">
+    <label for="time">Time</label>
+    <input id="time" type="time" [(ngModel)]="time">
+    <button (click)="book()">Book Appointment</button>
+    <p class="message">{{ message }}</p>
+  </div>
+</div>

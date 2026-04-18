@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Doctor, QueueEntry, Reminder
-from .serializers import DoctorSerializer, QueueEntrySerializer, LoginSerializers, ReminderSerializer, UserSerializer
+from .serializers import DoctorSerializer, QueueEntrySerializer, LoginSerializers, ReminderSerializer, UserSerializer, RegisterSerializer
 from django.shortcuts import render
 from rest_framework.decorators import api_view , permission_classes
 from rest_framework import status
@@ -54,6 +54,15 @@ class ProfileView(APIView):
             serializer.save(user=request.user)
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def register_view(request):
+    serializer = RegisterSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response({"message": "User created successfully"}, status=201)
+    return Response(serializer.errors, status=400)
 
 class DoctorListView(APIView):
     def get(self, request):

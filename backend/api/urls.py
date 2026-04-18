@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import DoctorListView, QueueListView
+from .views import DoctorListView, QueueListView, register_view
 from . import views
 
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     path('login/', views.login_view, name = 'login'),
     path('logout/', views.logout_view, name = 'logout'),
     path('profile/', views.ProfileView.as_view(), name = 'profile'),
+    path('register/', register_view, name='register')
 ]

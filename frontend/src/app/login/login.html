@@ -9,5 +9,8 @@
     </div>
     <button class="login-btn" (click)="onLogin()">Войти</button>
     <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <div class="auth-links">
+      <p>Нет аккаунта? <a routerLink="/register">Зарегистрироваться</a></p>
+    </div>
   </div>
 </div>

@@ -19,4 +19,7 @@ export class AuthService {
   logout() {
     return this.http.post(`${this.BASE_URL}/logout/`, {});
   }
+  register(data: any) {
+    return this.http.post('http://127.0.0.1:8000/api/register/', data);
+  }
 }

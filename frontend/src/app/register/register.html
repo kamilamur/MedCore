@@ -1,0 +1,20 @@
+<div class="login-container">
+    <div class="login-card">
+      <h2>MedCore Register</h2>
+      <div class="input-group">
+        <input [(ngModel)]="regData.username" name="username" placeholder="Username">
+      </div>
+  
+      <div class="input-group">
+        <input [(ngModel)]="regData.email" name="email" type="email" placeholder="Email (optional)">
+      </div>
+  
+      <div class="input-group">
+        <input [(ngModel)]="regData.password" name="password" type="password" placeholder="Password">
+      </div>
+  
+      <button class="login-btn" (click)="onRegister()">Зарегистрироваться</button>
+      <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+      <p class="switch-auth">Уже есть аккаунт? <a routerLink="/login">Войти</a></p>
+    </div>
+  </div>

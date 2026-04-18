@@ -1,14 +1,19 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Doctor, QueueEntry, Reminder
-from .serializers import DoctorSerializer, QueueEntrySerializer, LoginSerializers, ReminderSerializer, UserSerializer
+from .serializers import (
+    DoctorSerializer,
+    QueueEntrySerializer,
+    LoginSerializers,
+    ReminderSerializer,
+    UserSerializer,
+    RegisterSerializer,
+)
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import status
 from django.contrib.auth import authenticate
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.authtoken.models import Token
-
-
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def login_view(request):
@@ -60,6 +65,16 @@ class ProfileView(APIView):
         return Response(serializer.errors, status=400)
 
 
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def register_view(request):
+    serializer = RegisterSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response({"message": "User created successfully"}, status=201)
+    return Response(serializer.errors, status=400)
+
+
 class DoctorListView(APIView):
     permission_classes = [AllowAny]
 
@@ -98,8 +113,6 @@ class QueueListView(APIView):
 
         serializer = QueueEntrySerializer(entry)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-
 class QueueEntryDeleteView(APIView):
     permission_classes = [AllowAny]
 
@@ -120,6 +133,5 @@ class QueueEntryDeleteView(APIView):
                 queue_entry.save()
 
             return Response(status=status.HTTP_204_NO_CONTENT)
-
         except QueueEntry.DoesNotExist:
             return Response({'error': 'Queue entry not found'}, status=status.HTTP_404_NOT_FOUND)

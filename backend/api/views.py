@@ -16,7 +16,7 @@ def login_view(request):
     if serializer.is_valid():
         user = authenticate(
             username = serializer.validated_data['username'],
-            password = serializer.validated_date['password']
+            password = serializer.validated_data['password']
         )
 
         if user:

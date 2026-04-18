@@ -17,14 +17,25 @@ export class LoginComponent {
   constructor(private auth: AuthService, private router: Router) {}
 
   onLogin() {
-    this.auth.login(this.loginData).subscribe({
-      next: (res) => {
+    const authData = {
+      username: this.loginData.username.trim(),
+      password: this.loginData.password.trim()
+    };
+  
+    console.log('Отправляем данные:', authData); 
+  
+    this.auth.login(authData).subscribe({
+      next: (res: any) => {
+        console.log('Ответ сервера:', res);
         localStorage.setItem('token', res.token);
-        this.router.navigate(['/profile']);
-        localStorage.setItem('is_staff', res.is_staff.toString()); 
+        localStorage.setItem('is_staff', res.is_staff.toString());
         localStorage.setItem('username', res.username);
+        this.router.navigate(['/profile']);
       },
-      error: () => this.errorMessage = 'Ошибка входа!'
+      error: (err) => {
+        console.error('Ошибка бэкенда:', err);
+        this.errorMessage = "Ошибка входа! Проверьте логин и пароль.";
+      }
     });
   }
 }

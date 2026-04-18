@@ -1,39 +1,76 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { ApiService } from '../services/api.service';
+import { Doctor, QueueEntry } from '../services/models';
 
 @Component({
   selector: 'app-queue',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './queue.html',
   styleUrl: './queue.css'
 })
 export class Queue implements OnInit {
-  queueEntries: any[] = [];
-  doctorId: number = 1;
+  doctors: Doctor[] = [];
+  queueEntries: QueueEntry[] = [];
+  selectedDoctorId: number | null = null;
+  doctorId: number | null = null;
 
   constructor(
-    private cdr: ChangeDetectorRef,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private api: ApiService,
+    private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
+    try {
+      this.doctors = await this.api.getDoctors();
+      this.cdr.detectChanges();
+    } catch (error) {
+      console.error('Doctors fetch error:', error);
+    }
+
     this.route.queryParams.subscribe((params) => {
-      this.doctorId = Number(params['doctorId']) || 1;
-      this.loadQueue();
+      const id = params['doctorId'] ? +params['doctorId'] : null;
+      if (id !== null) {
+        this.selectedDoctorId = id;
+        this.doctorId = id;
+        this.loadQueue();
+      }
     });
   }
 
-  loadQueue() {
-    fetch(`http://127.0.0.1:8000/api/queue/${this.doctorId}/`)
-      .then((res) => res.json())
-      .then((data) => {
-        this.queueEntries = data;
-        this.cdr.detectChanges();
-      })
-      .catch((error) => {
-        console.error('Queue fetch error:', error);
-      });
+  async showQueue() {
+    if (this.selectedDoctorId === null) {
+      return;
+    }
+
+    this.doctorId = this.selectedDoctorId;
+    await this.loadQueue();
+  }
+
+  async loadQueue() {
+    if (this.doctorId === null) {
+      this.queueEntries = [];
+      return;
+    }
+
+    try {
+      this.queueEntries = await this.api.getQueue(this.doctorId);
+      this.cdr.detectChanges();
+    } catch (error) {
+      console.error('Queue fetch error:', error);
+    }
+  }
+
+  async leaveQueue(entryId: number) {
+    try {
+      await this.api.leaveQueue(entryId);
+      await this.loadQueue();
+    } catch (error) {
+      console.error('Leave queue error:', error);
+    }
   }
 }

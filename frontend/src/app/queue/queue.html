@@ -1,12 +1,36 @@
 <div class="page">
-  <h1>Queue List</h1>
-  <p><strong>Doctor ID:</strong> {{ doctorId }}</p>
+  <div class="content">
+    <h1>Queue List</h1>
+    <p class="subtitle">Select a doctor to view their queue.</p>
 
-  <div class="queue-card" *ngFor="let entry of queueEntries">
-    <p><strong>Position:</strong> {{ entry.position }}</p>
-    <p><strong>User ID:</strong> {{ entry.user }}</p>
-    <p><strong>Doctor ID:</strong> {{ entry.doctor }}</p>
+    <div class="select-box">
+      <label for="doctorSelect"><strong>Select doctor:</strong></label>
+
+      <select id="doctorSelect" [(ngModel)]="selectedDoctorId">
+        <option [ngValue]="null">Choose doctor</option>
+        <option *ngFor="let doctor of doctors" [ngValue]="doctor.id">
+          Doctor #{{ doctor.id }} — {{ doctor.specialization }}
+        </option>
+      </select>
+
+      <button class="show-btn" (click)="showQueue()">Show Queue</button>
+    </div>
+
+    <div *ngIf="doctorId !== null" class="doctor-id">
+      <strong>Doctor ID:</strong> {{ doctorId }}
+    </div>
+
+    <div class="queue-list" *ngIf="queueEntries.length > 0">
+      <div class="queue-card" *ngFor="let entry of queueEntries">
+        <p><strong>Position:</strong> {{ entry.position }}</p>
+        <p><strong>User ID:</strong> {{ entry.user }}</p>
+        <p><strong>Doctor ID:</strong> {{ entry.doctor }}</p>
+        <button class="leave-btn" (click)="leaveQueue(entry.id)">Leave Queue</button>
+      </div>
+    </div>
+
+    <p class="empty-text" *ngIf="doctorId !== null && queueEntries.length === 0">
+      No queue entries found.
+    </p>
   </div>
-
-  <p *ngIf="queueEntries.length === 0">No queue entries found.</p>
 </div>

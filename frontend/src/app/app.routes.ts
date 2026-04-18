@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login';
 import { ProfileComponent } from './profile/profile';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'doctors', pathMatch: 'full' },
   { path: 'doctors', component: Doctors },
   { path: 'queue', component: Queue },
   { path: 'login', component: LoginComponent },

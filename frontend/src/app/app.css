@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #eef0f3;
+}
+
+.navbar {
+  height: 52px;
+  background-color: #0f1830;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 18px;
+}
+
+.logo {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}

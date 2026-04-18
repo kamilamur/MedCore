@@ -1,14 +1,20 @@
 <div class="page">
-  <h1>Doctors List</h1>
+  <div class="content">
+    <h1>Doctors List</h1>
 
-  <button class="load-btn" (click)="loadDoctors()">Load Doctors</button>
+    <button class="load-btn" (click)="loadDoctors()">Load Doctors</button>
 
-  <div class="cards">
-    <div class="doctor-card" *ngFor="let doctor of doctors">
-      <h3>Doctor #{{ doctor.id }}</h3>
-      <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
-      <p><strong>Room:</strong> {{ doctor.room_number }}</p>
-      <button class="queue-btn" (click)="checkQueue(doctor.id)">Check Queue</button>
+    <div class="cards" *ngIf="doctors.length > 0">
+      <div class="doctor-card" *ngFor="let doctor of doctors">
+        <h3>Doctor #{{ doctor.id }}</h3>
+        <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+        <p><strong>Room:</strong> {{ doctor.room_number }}</p>
+
+        <div class="button-group">
+          <button class="queue-btn" (click)="joinQueue(doctor.id)">Join Queue</button>
+          <button class="queue-btn secondary-btn" (click)="checkQueue(doctor.id)">Check Queue</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

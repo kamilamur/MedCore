@@ -1,0 +1,13 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>MedCore Login</h2>
+    <div class="input-group">
+      <input [(ngModel)]="loginData.username" placeholder="Username">
+    </div>
+    <div class="input-group">
+      <input [(ngModel)]="loginData.password" type="password" placeholder="Password">
+    </div>
+    <button class="login-btn" (click)="onLogin()">Войти</button>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  </div>
+</div>

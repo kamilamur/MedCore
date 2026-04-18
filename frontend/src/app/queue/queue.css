@@ -1,15 +1,116 @@
+:host {
+  display: block;
+  min-height: calc(100vh - 52px);
+  background-color: #eef0f3;
+}
+
 .page {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+  padding: 28px 20px;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1f2937;
+}
+
+.subtitle {
+  font-size: 11px;
+  color: #4b5563;
+  margin-bottom: 16px;
+}
+
+.select-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 1px solid #d7dce2;
+  border-radius: 8px;
+  padding: 12px;
+  width: fit-content;
+  min-width: 420px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 14px;
+}
+
+.select-box label {
+  font-size: 10px;
+  color: #111827;
+}
+
+.select-box select {
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  min-width: 160px;
+  font-size: 10px;
+  background-color: white;
+}
+
+.show-btn {
+  background-color: #2f80ed;
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.show-btn:hover {
+  background-color: #1f6fd6;
+}
+
+.doctor-id {
+  margin-bottom: 12px;
+  font-size: 11px;
+  color: #111827;
+}
+
+.queue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .queue-card {
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 16px;
-  margin-top: 15px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 420px;
+  background: white;
+  border: 1px solid #d7dce2;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 12px;
+}
+
+.queue-card p {
+  margin: 6px 0;
+  font-size: 11px;
+  color: #374151;
+}
+
+.leave-btn {
+  margin-top: 8px;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.leave-btn:hover {
+  background-color: #dc2626;
+}
+
+.empty-text {
+  font-size: 11px;
+  color: #6b7280;
 }

@@ -1,6 +1,8 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ApiService } from '../services/api.service';
+import { Doctor } from '../services/models';
 
 @Component({
   selector: 'app-doctors',
@@ -10,26 +12,34 @@ import { Router } from '@angular/router';
   styleUrl: './doctors.css'
 })
 export class Doctors {
-  doctors: any[] = [];
+  doctors: Doctor[] = [];
+  currentUserId = 1;
 
   constructor(
-    private cdr: ChangeDetectorRef,
-    private router: Router
+    private api: ApiService,
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {}
 
-  loadDoctors() {
-    fetch('http://127.0.0.1:8000/api/doctors/')
-      .then((res) => res.json())
-      .then((data) => {
-        this.doctors = data;
-        this.cdr.detectChanges();
-      })
-      .catch((error) => {
-        console.error('Doctors fetch error:', error);
-      });
+  async loadDoctors() {
+    try {
+      this.doctors = await this.api.getDoctors();
+      this.cdr.detectChanges();
+    } catch (error) {
+      console.error('Doctors fetch error:', error);
+    }
   }
 
   checkQueue(doctorId: number) {
     this.router.navigate(['/queue'], { queryParams: { doctorId } });
+  }
+
+  async joinQueue(doctorId: number) {
+    try {
+      await this.api.joinQueue(doctorId, this.currentUserId);
+      this.router.navigate(['/queue'], { queryParams: { doctorId } });
+    } catch (error) {
+      console.error('Join queue error:', error);
+    }
   }
 }

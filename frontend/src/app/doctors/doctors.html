@@ -1,20 +1,27 @@
-<div class="page">
-  <div class="content">
+<div class="doctors-page">
+  <div class="doctors-card">
     <h1>Doctors List</h1>
+    @if (loading) {
+      <p>Loading doctors...</p>
+    }
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
 
-    <button class="load-btn" (click)="loadDoctors()">Load Doctors</button>
-
-    <div class="cards" *ngIf="doctors.length > 0">
-      <div class="doctor-card" *ngFor="let doctor of doctors">
-        <h3>Doctor #{{ doctor.id }}</h3>
-        <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
-        <p><strong>Room:</strong> {{ doctor.room_number }}</p>
-
-        <div class="button-group">
-          <button class="queue-btn" (click)="joinQueue(doctor.id)">Join Queue</button>
-          <button class="queue-btn secondary-btn" (click)="checkQueue(doctor.id)">Check Queue</button>
-        </div>
-      </div>
+    @if (!loading && doctors.length === 0 && !errorMessage) {
+      <p>No doctors available.</p>
+    }
+    <div class="doctor-grid">
+      @for (doctor of doctors; track doctor.id) {
+  <div class="doctor-item">
+    <h3>
+      Dr. {{ doctor.first_name }} {{ doctor.last_name }}
+    </h3>
+    <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+    <p><strong>Room:</strong> {{ doctor.room_number }}</p>
+    <button (click)="goToQueue(doctor.id)">View Queue</button>
+  </div>
+}
     </div>
   </div>
 </div>

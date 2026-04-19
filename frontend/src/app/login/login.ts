@@ -13,28 +13,24 @@ import { RouterLink } from '@angular/router';
 export class LoginComponent {
   loginData = { username: '', password: '' };
   errorMessage = '';
-
   constructor(private auth: AuthService, private router: Router) {}
-
   onLogin() {
     const authData = {
       username: this.loginData.username.trim(),
       password: this.loginData.password.trim()
     };
-  
-    console.log('Отправляем данные:', authData); 
-  
     this.auth.login(authData).subscribe({
       next: (res: any) => {
-        console.log('Ответ сервера:', res);
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('is_staff', res.is_staff.toString());
+        localStorage.setItem('access', res.access);
+        localStorage.setItem('refresh', res.refresh);
         localStorage.setItem('username', res.username);
-        this.router.navigate(['/profile']);
+        localStorage.setItem('is_staff', res.is_staff.toString());
+        localStorage.setItem('role', res.role);
+        localStorage.setItem('user_id', res.user_id.toString());
+        this.router.navigate(['/home']);
       },
-      error: (err) => {
-        console.error('Ошибка бэкенда:', err);
-        this.errorMessage = "Ошибка входа! Проверьте логин и пароль.";
+      error: () => {
+        this.errorMessage = 'Ошибка входа! Проверьте логин и пароль.';
       }
     });
   }

@@ -1,0 +1,44 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  padding: 40px 20px;
+  color: white;
+}
+h1 {
+  text-align: center;
+  color: #4ade80;
+  margin-bottom: 30px;
+}
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transition: 0.2s;
+}
+.card:hover {
+  transform: translateY(-3px);
+}
+.card p {
+  margin: 6px 0;
+}
+button {
+  margin-top: 10px;
+  background: #f59e0b;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+button:hover {
+  background: #9ad906;
+}
+.error {
+  color: #fca5a5;
+  text-align: center;
+  margin-bottom: 20px;
+}

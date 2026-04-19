@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import AppointmentListCreateAPIView, AppointmentDetailAPIView
+from .views import AppointmentListCreateView, AppointmentDetailView
 urlpatterns = [
-    path('appointments/', AppointmentListCreateAPIView.as_view(), name='appointments'),
-    path('appointments/<int:pk>/', AppointmentDetailAPIView.as_view(), name='appointment-detail'),
+    path('', AppointmentListCreateView.as_view()),
+    path('<int:pk>/', AppointmentDetailView.as_view()),
 ]

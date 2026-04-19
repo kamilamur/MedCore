@@ -1,0 +1,717 @@
+{
+  "info": {
+    "_postman_id": "87036e85-c850-4d71-be7a-f1032f138230",
+    "name": "MedCore api",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53646501"
+  },
+  "item": [
+    {
+      "name": "POST",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/login/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "log",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/login/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "login",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 19 Apr 2026 13:30:11 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.2"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "557"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2NjA1NzExLCJpYXQiOjE3NzY2MDU0MTEsImp0aSI6IjkyMmFlNTdkMjAzYjQyOWI5MDRlYjYyMWViYjRiMzY1IiwidXNlcl9pZCI6IjIifQ.LJuMMIVv-D9_56Px5P_I201ssxtRNCnNyH5IoSunB8E\",\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc3NjY5MTgxMSwiaWF0IjoxNzc2NjA1NDExLCJqdGkiOiIwNjkyZmEzYjVjYmM0YWI2OTFjYWEzY2QzYzRmNGJkMCIsInVzZXJfaWQiOiIyIn0.xXy2-IvwgEBaRtg4bdWrGMSuHM3lBK9xpTkpnl8zfTk\",\n    \"username\": \"kamila_m\",\n    \"is_staff\": false,\n    \"role\": \"patient\",\n    \"user_id\": 2\n}"
+        }
+      ]
+    },
+    {
+      "name": "GET",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/doctors/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "doctors",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "GET",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/doctors/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "doctors",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 19 Apr 2026 13:38:21 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.2"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "698"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 1,\n        \"user\": 4,\n        \"first_name\": \"Kunafiyanova\",\n        \"last_name\": \"Aizat\",\n        \"specialization\": \"Allergist\",\n        \"room_number\": \"206\"\n    },\n    {\n        \"id\": 2,\n        \"user\": 5,\n        \"first_name\": \"Kaldybekova\",\n        \"last_name\": \"Gulzat\",\n        \"specialization\": \"Gastroenterologyst\",\n        \"room_number\": \"207\"\n    },\n    {\n        \"id\": 3,\n        \"user\": 6,\n        \"first_name\": \"Aigerim\",\n        \"last_name\": \"Mukhamed\",\n        \"specialization\": \"Gastroenterologyst\",\n        \"room_number\": \"218\"\n    },\n    {\n        \"id\": 4,\n        \"user\": 7,\n        \"first_name\": \"Egor\",\n        \"last_name\": \"Creed\",\n        \"specialization\": \"Psychotherapist\",\n        \"room_number\": \"2\"\n    },\n    {\n        \"id\": 5,\n        \"user\": 8,\n        \"first_name\": \"Aliya\",\n        \"last_name\": \"Muralinova\",\n        \"specialization\": \"Cardiologist\",\n        \"room_number\": \"1\"\n    },\n    {\n        \"id\": 6,\n        \"user\": 9,\n        \"first_name\": \"Harry\",\n        \"last_name\": \"Styles\",\n        \"specialization\": \"Neurologist\",\n        \"room_number\": \"111\"\n    }\n]"
+        },
+        {
+          "name": "GET",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "",
+                "value": "",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/doctors/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "doctors",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 19 Apr 2026 13:38:21 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.2"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "698"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 1,\n        \"user\": 4,\n        \"first_name\": \"Kunafiyanova\",\n        \"last_name\": \"Aizat\",\n        \"specialization\": \"Allergist\",\n        \"room_number\": \"206\"\n    },\n    {\n        \"id\": 2,\n        \"user\": 5,\n        \"first_name\": \"Kaldybekova\",\n        \"last_name\": \"Gulzat\",\n        \"specialization\": \"Gastroenterologyst\",\n        \"room_number\": \"207\"\n    },\n    {\n        \"id\": 3,\n        \"user\": 6,\n        \"first_name\": \"Aigerim\",\n        \"last_name\": \"Mukhamed\",\n        \"specialization\": \"Gastroenterologyst\",\n        \"room_number\": \"218\"\n    },\n    {\n        \"id\": 4,\n        \"user\": 7,\n        \"first_name\": \"Egor\",\n        \"last_name\": \"Creed\",\n        \"specialization\": \"Psychotherapist\",\n        \"room_number\": \"2\"\n    },\n    {\n        \"id\": 5,\n        \"user\": 8,\n        \"first_name\": \"Aliya\",\n        \"last_name\": \"Muralinova\",\n        \"specialization\": \"Cardiologist\",\n        \"room_number\": \"1\"\n    },\n    {\n        \"id\": 6,\n        \"user\": 9,\n        \"first_name\": \"Harry\",\n        \"last_name\": \"Styles\",\n        \"specialization\": \"Neurologist\",\n        \"room_number\": \"111\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "PROFILE",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2NjA2Mzg4LCJpYXQiOjE3NzY2MDYwODgsImp0aSI6ImM1NWY5MmE4YmJlMDRiYjQ4ZWZkMzM4NDcwMThlNDQ2IiwidXNlcl9pZCI6IjIifQ.8xK4JKd9V7Ha0p09YwrhUeN9DCSrjo3Aj7KWuhdyLr0",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/profile/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "profile",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "PROFILE",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2NjA2Mzg4LCJpYXQiOjE3NzY2MDYwODgsImp0aSI6ImM1NWY5MmE4YmJlMDRiYjQ4ZWZkMzM4NDcwMThlNDQ2IiwidXNlcl9pZCI6IjIifQ.8xK4JKd9V7Ha0p09YwrhUeN9DCSrjo3Aj7KWuhdyLr0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/profile/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "profile",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 19 Apr 2026 13:42:54 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.2"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "71"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"user\": {\n        \"id\": 2,\n        \"username\": \"kamila_m\"\n    },\n    \"role\": \"patient\",\n    \"reminders\": []\n}"
+        }
+      ]
+    },
+    {
+      "name": "profile",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/login/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "reminders",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2NjA2Mzg4LCJpYXQiOjE3NzY2MDYwODgsImp0aSI6ImM1NWY5MmE4YmJlMDRiYjQ4ZWZkMzM4NDcwMThlNDQ2IiwidXNlcl9pZCI6IjIifQ.8xK4JKd9V7Ha0p09YwrhUeN9DCSrjo3Aj7KWuhdyLr0",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/profile/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "profile",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "doctors",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/doctors/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "doctors",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2NjA2Mzg4LCJpYXQiOjE3NzY2MDYwODgsImp0aSI6ImM1NWY5MmE4YmJlMDRiYjQ4ZWZkMzM4NDcwMThlNDQ2IiwidXNlcl9pZCI6IjIifQ.8xK4JKd9V7Ha0p09YwrhUeN9DCSrjo3Aj7KWuhdyLr0",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/appointments/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "appointments",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "New Request",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2NjA2Mzg4LCJpYXQiOjE3NzY2MDYwODgsImp0aSI6ImM1NWY5MmE4YmJlMDRiYjQ4ZWZkMzM4NDcwMThlNDQ2IiwidXNlcl9pZCI6IjIifQ.8xK4JKd9V7Ha0p09YwrhUeN9DCSrjo3Aj7KWuhdyLr0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/appointments/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "appointments",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Sun, 19 Apr 2026 13:45:09 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.2"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "939"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 3,\n        \"patient_username\": \"kamila_m\",\n        \"doctor_first_name\": \"Aigerim\",\n        \"doctor_last_name\": \"Mukhamed\",\n        \"doctor_specialization\": \"Gastroenterologyst\",\n        \"doctor_room_number\": \"218\",\n        \"appointment_date\": \"2026-05-01\",\n        \"appointment_time\": \"18:30:00\",\n        \"status\": \"cancelled\",\n        \"created_at\": \"2026-04-19T11:30:36.512376Z\",\n        \"patient\": 2,\n        \"doctor\": 3\n    },\n    {\n        \"id\": 2,\n        \"patient_username\": \"kamila_m\",\n        \"doctor_first_name\": \"Harry\",\n        \"doctor_last_name\": \"Styles\",\n        \"doctor_specialization\": \"Neurologist\",\n        \"doctor_room_number\": \"111\",\n        \"appointment_date\": \"2026-05-13\",\n        \"appointment_time\": \"21:22:00\",\n        \"status\": \"cancelled\",\n        \"created_at\": \"2026-04-19T11:22:10.853868Z\",\n        \"patient\": 2,\n        \"doctor\": 6\n    },\n    {\n        \"id\": 1,\n        \"patient_username\": \"kamila_m\",\n        \"doctor_first_name\": \"Egor\",\n        \"doctor_last_name\": \"Creed\",\n        \"doctor_specialization\": \"Psychotherapist\",\n        \"doctor_room_number\": \"2\",\n        \"appointment_date\": \"2026-04-30\",\n        \"appointment_time\": \"18:08:00\",\n        \"status\": \"cancelled\",\n        \"created_at\": \"2026-04-19T10:08:54.540117Z\",\n        \"patient\": 2,\n        \"doctor\": 4\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "appontments",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc2NjA2Mzg4LCJpYXQiOjE3NzY2MDYwODgsImp0aSI6ImM1NWY5MmE4YmJlMDRiYjQ4ZWZkMzM4NDcwMThlNDQ2IiwidXNlcl9pZCI6IjIifQ.8xK4JKd9V7Ha0p09YwrhUeN9DCSrjo3Aj7KWuhdyLr0",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/appointments/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "appointments",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

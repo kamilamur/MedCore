@@ -1,73 +1,79 @@
 .profile-page {
-    min-height: 100vh;
-    background-color:rgb(175, 125, 225);
-    color: white;
-    padding: 40px 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  padding: 40px 20px;
 }
-
-.profile-header {
-  max-width: 800px;
-  margin: 0 auto 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #333;
-  padding-bottom: 20px;
-}
-
-.profile-header h1 {
-  color: #4CAF50;
-  margin: 0;
-}
-
-.reminders-section {
-  max-width: 800px;
+.profile-card {
+  max-width: 900px;
   margin: 0 auto;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
 }
-
-.reminder-list {
-  list-style: none;
-  padding: 0;
-}
-
-.reminder-item {
-  background: #111;
-  border: 1px solid #333;
-  border-radius: 15px;
-  padding: 20px;
-  margin-bottom: 15px;
+.profile-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 0.3s;
+  margin-bottom: 24px;
 }
-
-.reminder-item:hover {
-  border-color: #4CAF50;
-  background: #161616;
+.profile-header h1 {
+  margin: 0;
+  font-size: 36px;
+  color: #4ade80;
 }
-
-.reminder-info h4 {
-  margin: 0 0 5px 0;
-  font-size: 18px;
-}
-
-.reminder-info span {
-  color: #888;
-  font-size: 14px;
-}
-
 .logout-btn {
   background: transparent;
-  color: #ff5252;
-  border: 1px solid #ff5252;
-  padding: 8px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.logout-btn:hover {
-  background: #ff5252;
+  border: 1px solid white;
   color: white;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.logout-btn:hover {
+  background: white;
+  color: #111827;
+}
+.profile-info {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.info-box {
+  flex: 1 1 220px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 18px;
+}
+.label {
+  display: block;
+  color: #94a3b8;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+.reminders-section h2 {
+  color: #4ade80;
+  margin-bottom: 18px;
+}
+.reminder-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 18px;
+  border-radius: 16px;
+  margin-bottom: 14px;
+}
+.empty-text {
+  color: #cbd5e1;
+}
+.error {
+  color: #fca5a5;
+  margin-bottom: 20px;
 }

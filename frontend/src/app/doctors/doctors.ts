@@ -1,9 +1,8 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { ApiService } from '../services/api.service';
-import { Doctor } from '../services/models';
-
+import { DoctorService } from '../services/doctor.service';
+import { Doctor } from '../interfaces/doctor';
 @Component({
   selector: 'app-doctors',
   standalone: true,
@@ -11,35 +10,38 @@ import { Doctor } from '../services/models';
   templateUrl: './doctors.html',
   styleUrl: './doctors.css'
 })
-export class Doctors {
+export class Doctors implements OnInit {
   doctors: Doctor[] = [];
-  currentUserId = 1;
+  errorMessage: string = '';
+  loading: boolean = false;
 
   constructor(
-    private api: ApiService,
-    private router: Router,
-    private cdr: ChangeDetectorRef
+    private doctorService: DoctorService,
+    private router: Router
   ) {}
 
-  async loadDoctors() {
-    try {
-      this.doctors = await this.api.getDoctors();
-      this.cdr.detectChanges();
-    } catch (error) {
-      console.error('Doctors fetch error:', error);
-    }
+  ngOnInit(): void {
+    this.loadDoctors();
   }
 
-  checkQueue(doctorId: number) {
-    this.router.navigate(['/queue'], { queryParams: { doctorId } });
-  }
+  loadDoctors(): void {
+    this.loading = true;
+    this.errorMessage = '';
 
-  async joinQueue(doctorId: number) {
-    try {
-      await this.api.joinQueue(doctorId, this.currentUserId);
-      this.router.navigate(['/queue'], { queryParams: { doctorId } });
-    } catch (error) {
-      console.error('Join queue error:', error);
-    }
+    this.doctorService.getDoctors().subscribe({
+      next: (data) => {
+        this.doctors = data;
+        this.loading = false;
+      },
+      error: () => {
+        this.errorMessage = 'Unable to load doctors.';
+        this.loading = false;
+      }
+    });
+  }
+  goToQueue(doctorId: number): void {
+    this.router.navigate(['/queue'], {
+      queryParams: { doctorId }
+    });
   }
 }

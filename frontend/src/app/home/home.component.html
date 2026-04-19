@@ -1,0 +1,49 @@
+<div class="home-page">
+  @if (isLoggedIn) {
+  <nav class="navbar">
+    <div class="logo">MedCore</div>
+    <div class="nav-links">
+      @if (role === 'patient') {
+        <a routerLink="/doctors">Doctors</a>
+        <a routerLink="/queue">Queue</a>
+        <a routerLink="/profile">Profile</a>
+      }
+      @if (role === 'admin') {
+        <a routerLink="/admin-appointments">Appointments Panel</a>
+      }
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </nav>
+}
+  <section class="hero">
+    <div class="hero-text">
+      <p class="welcome">
+        @if (isLoggedIn) {
+          Welcome, {{ username || 'User' }}
+        } @else {
+          Welcome to MedCore
+        }
+      </p>
+      <h1>Medical services all in one place</h1>
+      <p class="subtitle">
+        Book appointments, view doctors, manage your records, track the queue with comfort.
+      </p>
+      <div class="hero-buttons">
+        @if (!isLoggedIn) {
+          <a routerLink="/login" class="btn primary">Login</a>
+        }
+        @if (isLoggedIn && role === 'patient') {
+          <a routerLink="/appointment" class="btn primary">Book Appointment</a>
+          <a routerLink="/my-appointments" class="btn secondary">My Appointments</a>
+        }
+        @if (isLoggedIn && role === 'admin') {
+          <a routerLink="/doctors" class="btn primary">Doctors Panel</a>
+          <a routerLink="/queue" class="btn secondary">Queue Panel</a>
+        }
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="clinic.jpeg" alt="Clinic">
+    </div>
+  </section>
+</div>

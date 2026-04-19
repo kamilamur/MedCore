@@ -1,0 +1,35 @@
+<<div class="page">
+  <h1>Appointments Panel</h1>
+  @if (error) {
+    <p class="error">{{ error }}</p>
+  }
+  @for (a of appointments; track a.id) {
+    <div class="card">
+      <p><b>Patient:</b> {{ a.patient_username }}</p>
+      <p>
+        <b>Doctor:</b>
+        Dr. {{ a.doctor_first_name }} {{ a.doctor_last_name }}
+      </p>
+      <p><b>Specialization:</b> {{ a.doctor_specialization }}</p>
+      <p><b>Room:</b> {{ a.doctor_room_number }}</p>
+      <p><b>Date:</b> {{ a.appointment_date }}</p>
+      <p><b>Time:</b> {{ a.appointment_time }}</p>
+      <p>
+        <b>Status:</b>
+        <span [ngStyle]="{
+          color: a.status === 'cancelled' ? '#f87171' :
+                 a.status === 'completed' ? '#4ade80' : '#60a5fa'
+        }">
+          {{ a.status }}
+        </span>
+      </p>
+
+      @if (a.cancelled_by_username) {
+        <p><b>Cancelled by:</b> {{ a.cancelled_by_username }}</p>
+      }
+      @if (a.status !== 'cancelled') {
+        <button (click)="cancel(a.id)">Cancel</button>
+      }
+    </div>
+  }
+</div>

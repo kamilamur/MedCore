@@ -1,0 +1,30 @@
+<div class="profile-page">
+  <div class="profile-card">
+    <h1>Profile</h1>
+    <div class="profile-info">
+      <div class="info-box">
+        <span class="label">Username</span>
+        <span class="value">{{ username }}</span>
+      </div>
+    </div>
+    @if (role === 'patient') {
+      <div class="reminders-section">
+        <h2>Your reminders</h2>
+        @if (reminders.length === 0) {
+          <p class="empty-text">No reminders yet.</p>
+        }
+        @for (reminder of reminders; track reminder.id) {
+          <div class="reminder-card">
+            <p> 
+              <strong>{{ getDoctorFullName(reminder) }}</strong> — 
+              {{ reminder.doctor_specialization }}
+            </p>
+            <p>
+              {{ reminder.appointment_date }} at {{ formatTime(reminder.appointment_time) }}
+             </p>
+           </div>
+        }
+      </div>
+    }
+  </div>
+</div>

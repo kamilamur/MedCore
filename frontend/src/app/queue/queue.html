@@ -1,0 +1,102 @@
+<div class="queue-page">
+  <div class="queue-card">
+    <h1>Queue List</h1>
+    <p>Select a doctor to view the queue.</p>
+
+    <div class="queue-form">
+      <label for="doctor">Select doctor:</label>
+
+      <select id="doctor" [(ngModel)]="selectedDoctorId">
+        <option [ngValue]="null">Choose doctor</option>
+
+        @for (doctor of doctors; track doctor.id) {
+          <option [ngValue]="doctor.id">
+            Dr. {{ doctor.first_name }} {{ doctor.last_name }} — {{ doctor.specialization }}
+          </option>
+        }
+      </select>
+      @if (role === 'patient') {
+        <button class="join-btn" (click)="joinQueue()">Join Queue</button>
+      }
+    </div>
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+
+    @if (successMessage) {
+      <p class="success">{{ successMessage }}</p>
+    }
+
+    @if (role === 'patient') {
+      <div class="section">
+        <h2>My current queues</h2>
+        @if (overviewEntries.length === 0) {
+          <p>No active queue entries.</p>
+        }
+        @for (entry of overviewEntries; track entry.id) {
+          <div class="queue-item">
+            <p><strong>Doctor:</strong> Dr. {{ entry.doctor_first_name }} {{ entry.doctor_last_name }}</p>
+            <p><strong>Specialization:</strong> {{ entry.doctor_specialization }}</p>
+            <p><strong>Room:</strong> {{ entry.doctor_room_number }}</p>
+            <p><strong>My position:</strong> {{ entry.position }}</p>
+          </div>
+        }
+      </div>
+    }
+    @if (role === 'admin') {
+      <div class="section">
+        <h2>All current queues</h2>
+
+        @if (overviewEntries.length === 0) {
+          <p>No queue entries yet.</p>
+        }
+        @for (entry of overviewEntries; track entry.id) {
+          <div class="queue-item">
+            <p><strong>Patient:</strong> {{ entry.user_username }}</p>
+            <p><strong>Doctor:</strong> Dr. {{ entry.doctor_first_name }} {{ entry.doctor_last_name }}</p>
+            <p><strong>Specialization:</strong> {{ entry.doctor_specialization }}</p>
+            <p><strong>Position:</strong> {{ entry.position }}</p>
+          </div>
+        }
+      </div>
+    }
+
+    @if (currentUserEntry && role === 'patient') {
+      <div class="current-user-box">
+        <p>
+          <strong>You are in queue</strong>
+          @if (getSelectedDoctor()) {
+            for Dr. {{ getSelectedDoctor()?.first_name }} {{ getSelectedDoctor()?.last_name }}
+          }
+        </p>
+        <p><strong>Your position:</strong> {{ currentUserEntry.position }}</p>
+
+        <button class="leave-btn" (click)="leaveQueue(currentUserEntry.id)">
+          Leave Queue
+        </button>
+      </div>
+    }
+
+    @if (loading) {
+      <p>Loading queue...</p>
+    }
+    @if (!loading && queueEntries.length > 0) {
+      <div class="section">
+        <h2>Selected doctor's queue</h2>
+        @for (entry of queueEntries; track entry.id) {
+          <div class="queue-item">
+            <p><strong>Position:</strong> {{ entry.position }}</p>
+            <p><strong>User:</strong> {{ entry.user_username }}</p>
+
+            @if (role === 'patient' && isCurrentUserEntry(entry)) {
+              <p class="you-badge">This is you</p>
+            }
+          </div>
+        }
+      </div>
+    }
+    @if (!loading && selectedDoctorId && queueEntries.length === 0) {
+      <p>No one is in the queue yet</p>
+    }
+  </div>
+</div>

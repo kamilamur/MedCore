@@ -1,0 +1,88 @@
+.queue-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  padding: 40px 20px;
+}
+.queue-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.queue-card h1 {
+  color: #9bde4a;
+  margin-bottom: 16px;
+}
+
+.queue-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+
+.queue-form select {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  min-width: 260px;
+}
+
+.queue-form button {
+  background: #4ade80;
+  color: #052e16;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.join-btn {
+  background: white !important;
+  color: #1e2d3b !important;
+}
+.section {
+  margin-top: 28px;
+}
+.section h2 {
+  color: #4aa5de;
+  margin-bottom: 14px;
+}
+.queue-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.current-user-box {
+  background: rgba(74, 222, 128, 0.15);
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 20px 0;
+}
+.leave-btn {
+  margin-top: 10px;
+  background: #ef44d2;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.you-badge {
+  margin-top: 8px;
+  color: #efed86;
+  font-weight: 700;
+}
+.error {
+  color: #fca5a5;
+}
+.success {
+  color: #86efac;
+}

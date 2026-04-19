@@ -1,0 +1,93 @@
+.appointments-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #354256);
+  color: white;
+  padding: 40px 20px;
+}
+.appointments-card {
+  max-width: 950px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.121);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.appointments-card h1 {
+  color: #4ade80;
+  margin-bottom: 10px;
+}
+.subtitle {
+  color: #cbd5e1;
+  margin-bottom: 28px;
+}
+.appointments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.appointment-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.appointment-main p {
+  margin: 8px 0;
+}
+.appointment-actions {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.cancel-btn,
+.delete-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.cancel-btn {
+  background: #f59e0b;
+  color: white;
+}
+.delete-btn {
+  background: #ef4444;
+  color: rgb(255, 255, 255);
+}
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.status-badge.upcoming {
+  background: rgba(59, 130, 246, 0.25);
+  color: #93c5fd;
+}
+.status-badge.cancelled {
+  background: rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+}
+.status-badge.completed {
+  background: rgba(34, 197, 94, 0.25);
+  color: #86efac;
+}
+.error {
+  color: #fca5a5;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.success {
+  color: #adef86;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.empty-text {
+  color: #e2e8f0;
+}

@@ -4,7 +4,7 @@
 MedCore is a web-based application for automating patient appointments, queue management, and reminders. The system solves the problem of long waiting times and patient forgetfulness by providing a convenient online tool for managing medical visits.
 
 ## Group Members
-* Member 1: Kamila Muralinova, Project Lead and Full-Stack Developer (core system) 
+* Member 1: Kamila Muralinova, Project Lead and Full-Stack Developer (main functionality and integration) 
 * Member 2: Moldyr Sharipova, Authentication (Frontend/Backend)
 * Member 3: Abulkhair Kairbek, Doctors module (partially) 
 ## Tech Stack

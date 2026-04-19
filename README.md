@@ -15,6 +15,6 @@ MedCore is a web-based application for automating patient appointments, queue ma
 * Django
 * Djano REST Framework
 ## Database
-* SQLite (default Django database)
+* SQLite 
 ## Authentification
 * JWT (JSON Web Token)

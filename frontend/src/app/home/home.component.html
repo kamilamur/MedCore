@@ -3,8 +3,8 @@
   <nav class="navbar">
     <span class="logo" routerLink="/about">MedCore</span>
     <div class="nav-links">
-      <a routerLink="/team">Our Team</a>
       @if (role === 'patient') {
+        <a routerLink="/team">Our Team</a>
         <a routerLink="/doctors">Doctors</a>
         <a routerLink="/queue">Queue</a>
         <a routerLink="/profile">Profile</a>

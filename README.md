@@ -6,7 +6,6 @@ MedCore is a web-based application for automating patient appointments, queue ma
 ## Group Members
 * Member 1: Kamila Muralinova, Project Lead and Full-Stack Developer (main functionality and integration) 
 * Member 2: Moldyr Sharipova, Authentication (Frontend/Backend)
-* Member 3: Abulkhair Kairbek, Doctors module (partially) 
 ## Tech Stack:
 
 ## Frontend

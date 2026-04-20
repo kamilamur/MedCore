@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { DoctorService } from '../services/doctor.service';
 import { Doctor } from '../interfaces/doctor';
+
 @Component({
   selector: 'app-doctors',
   standalone: true,

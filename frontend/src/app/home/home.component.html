@@ -1,12 +1,14 @@
 <div class="home-page">
   @if (isLoggedIn) {
   <nav class="navbar">
-    <div class="logo">MedCore</div>
+    <span class="logo" routerLink="/about">MedCore</span>
     <div class="nav-links">
+      <a routerLink="/team">Our Team</a>
       @if (role === 'patient') {
         <a routerLink="/doctors">Doctors</a>
         <a routerLink="/queue">Queue</a>
         <a routerLink="/profile">Profile</a>
+        <a routerLink="/organization">Organizations</a>
       }
       @if (role === 'admin') {
         <a routerLink="/admin-appointments">Appointments Panel</a>
@@ -39,6 +41,7 @@
         @if (isLoggedIn && role === 'admin') {
           <a routerLink="/doctors" class="btn primary">Doctors Panel</a>
           <a routerLink="/queue" class="btn secondary">Queue Panel</a>
+          <a routerLink="/organization" class="btn primary">Organizations Panel</a>
         }
       </div>
     </div>

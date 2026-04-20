@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Doctor, QueueEntry, Reminder
+from .models import Doctor, QueueEntry, Reminder, Organization
+from django.core.mail import send_mail
 from .serializers import (
     DoctorSerializer,
     QueueEntrySerializer,
@@ -8,8 +9,9 @@ from .serializers import (
     ReminderSerializer,
     UserSerializer,
     RegisterSerializer,
+    OrganizationSerializer
 )
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view, permission_classes,authentication_classes
 from rest_framework import status
 from django.contrib.auth import authenticate
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -41,6 +43,7 @@ def login_view(request):
         )
 
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def logout_view(request):
@@ -48,6 +51,7 @@ def logout_view(request):
         {'message': 'Logged out successfully'},
         status=status.HTTP_200_OK
     )
+
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def register_view(request):
@@ -60,6 +64,7 @@ def register_view(request):
         )
 
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 class ProfileView(APIView):
     permission_classes = [IsAuthenticated]
     def get(self, request):
@@ -80,12 +85,21 @@ class ProfileView(APIView):
             serializer.save(user=request.user)
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
+    
+class OrganizationListView(APIView):
+    permission_classes = [AllowAny] 
+    def get(self, request):
+        organizations = Organization.objects.all()
+        serializer = OrganizationSerializer(organizations, many=True)
+        return Response(serializer.data)
+    
 class DoctorListView(APIView):
     permission_classes = [AllowAny]
     def get(self, request):
         doctors = Doctor.objects.all()
         serializer = DoctorSerializer(doctors, many=True)
         return Response(serializer.data)
+    
 class QueueListView(APIView):
     permission_classes = [IsAuthenticated]
     def get(self, request, doctor_id):
@@ -155,3 +169,21 @@ class QueueOverviewView(APIView):
             entries = QueueEntry.objects.filter(user=request.user).order_by('doctor_id', 'position')
         serializer = QueueEntrySerializer(entries, many=True)
         return Response(serializer.data)
+    
+@api_view(['POST'])
+@authentication_classes([])
+@permission_classes([AllowAny])
+def send_team_application(request):
+    name = request.data.get('name')
+    email = request.data.get('email')
+    message = request.data.get('message')
+
+    send_mail(
+        f'Application from {name}',
+        f'Message: {message}\nemail: {email}',
+        'from@medcore.com',
+        ['admin@medcore.com'],
+        fail_silently=False,
+    )
+    
+    return Response({"message": "Sent to console!"}, status=200)

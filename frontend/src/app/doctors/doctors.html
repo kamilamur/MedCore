@@ -20,6 +20,7 @@
     <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
     <p><strong>Room:</strong> {{ doctor.room_number }}</p>
     <button (click)="goToQueue(doctor.id)">View Queue</button>
+    {{ doctor.organization_name ?? 'No Org' }}
   </div>
 }
     </div>

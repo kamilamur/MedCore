@@ -1,0 +1,29 @@
+<div class="organizations-page">
+    <div class="organizations-card">
+      <h1>Organizations List</h1>
+  
+      @if (loading) {
+        <p>Loading organizations...</p>
+      }
+      @if (errorMessage) {
+        <p class="error">{{ errorMessage }}</p>
+      }
+      @if (!loading && organizations.length === 0 && !errorMessage) {
+        <p>No organizations available.</p>
+      }
+  
+      <div class="organization-grid">
+        @for (org of organizations; track org.id) {
+          <div class="organization-item">
+            <h3>{{ org.name }}</h3>
+            <p><strong>Address:</strong> {{ org.address }}</p>
+            <p><strong>Phone:</strong> {{ org.contact_phone }}</p>
+            @if (org.description) {
+              <p class="org-description">{{ org.description }}</p>
+            }
+            <button (click)="goToDoctors(org.id)">View Doctors</button>
+          </div>
+        }
+      </div>
+    </div>
+  </div>

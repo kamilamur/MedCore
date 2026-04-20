@@ -1,0 +1,33 @@
+<div class="login-container">
+    <div class="team-wrapper">
+        <h1 class="highlight">Our Development Team</h1>
+        
+        <div class="doctors-grid">
+            <div class="doctor-card" *ngFor="let dev of developers">
+                <div class="image-placeholder">
+                    <img [src]="dev.photo" [alt]="dev.name" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="doctor-info" style="border-bottom-color: #2ecc71;">
+                    <h3 style="background-color: #2ecc71;">{{ dev.name }}</h3>
+                    <p class="role">{{ dev.role }}</p>
+                    <p class="task-desc">{{ dev.task }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="join-us-card login-card" style="margin-top: 50px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            <h2 class="highlight">Join MedCore Team</h2>
+            <p style="color: #b0b3b8; margin-bottom: 20px;">Хотите стать частью нашего проекта? Оставьте заявку!</p>
+            
+            <div class="join-form">
+                <input #nameInput type="text" placeholder="Your Name" class="tech-item" style="width: 90%; margin-bottom: 10px;">
+                <input #emailInput type="email" placeholder="Email" class="tech-item" style="width: 90%; margin-bottom: 10px;">
+                <textarea #msgInput placeholder="Tell us about your skills" class="tech-item" style="width: 90%; min-height: 80px; padding: 10px; margin-bottom: 10px;"></textarea>
+                
+                <button class="send-btn" type="button" (click)="sendApplication(nameInput.value, emailInput.value, msgInput.value)">
+                    Send Application
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

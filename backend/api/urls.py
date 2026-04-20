@@ -8,6 +8,9 @@ from .views import (
     logout_view,
     register_view,
     ProfileView,
+    send_team_application,
+    OrganizationListView
+
 )
 urlpatterns = [
     path('doctors/', DoctorListView.as_view(), name='doctors-list'),
@@ -18,4 +21,6 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('profile/', ProfileView.as_view(), name='profile'),
     path('register/', register_view, name='register'),
+    path('send-application/', send_team_application, name='send_team_application'),
+    path('organizations/', OrganizationListView.as_view(), name='org-list'),
 ]

@@ -8,6 +8,10 @@ import { LoginComponent } from './login/login';
 import { ProfileComponent } from './profile/profile';
 import { RegisterComponent } from './register/register';
 import { AdminAppointmentsComponent } from './admin-appointments/admin-appointments';
+import { AboutComponent } from './about/about';
+import { TeamComponent } from './team/team';
+import { Organizations } from './organization/organization';
+
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -19,4 +23,7 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'admin-appointments', component: AdminAppointmentsComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'team', component: TeamComponent },
+  { path: 'organization', component: Organizations}
 ];

@@ -5,4 +5,5 @@ export interface Doctor {
   last_name: string;
   specialization: string;
   room_number: string;
+  organization_name: string | null;
 }

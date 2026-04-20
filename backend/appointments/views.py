@@ -24,12 +24,10 @@ class AppointmentListCreateView(APIView):
 
         if serializer.is_valid():
             appointment = serializer.save(patient=request.user)
-
             remind_time = datetime.combine(
                 appointment.appointment_date,
                 appointment.appointment_time
             ) - timedelta(hours=1)
-
             Reminder.objects.create(
                 user=request.user,
                 appointment=appointment,
@@ -48,17 +46,13 @@ class AppointmentDetailView(APIView):
                 appointment = Appointment.objects.get(id=pk, patient=request.user)
         except Appointment.DoesNotExist:
             return Response({'error': 'Appointment not found'}, status=404)
-
         status_value = request.data.get('status')
         if status_value:
             appointment.status = status_value
-
             if status_value == 'cancelled':
                 appointment.cancelled_by = request.user
                 Reminder.objects.filter(appointment=appointment).delete()
-
             appointment.save()
-
         serializer = AppointmentSerializer(appointment)
         return Response(serializer.data)
     def delete(self, request, pk):

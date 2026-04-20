@@ -14,7 +14,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}",
+          "raw": "{\r\n   \"username\": \"kamila_m\",\r\n    \"password\": \"Kams\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -46,7 +46,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}",
+              "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"Kams\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -136,7 +136,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}"
+          "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"Med\"\r\n}"
         },
         "url": {
           "raw": "http://127.0.0.1:8000/api/doctors/",
@@ -169,7 +169,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}"
+              "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"Med\"\r\n}"
             },
             "url": {
               "raw": "http://127.0.0.1:8000/api/doctors/",
@@ -249,7 +249,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"AbulkhairK\"\r\n}"
+              "raw": "{\r\n    \"username\": \"kamila_m\",\r\n    \"password\": \"Kams\"\r\n}"
             },
             "url": {
               "raw": "http://127.0.0.1:8000/api/doctors/",

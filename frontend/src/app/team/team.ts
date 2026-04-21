@@ -14,14 +14,20 @@ export class TeamComponent {
     { 
       name: 'Moldyr Sharipova', 
       role: 'Frontend Developer (Angular), Backend', 
-      task: 'Разработка интерфейса, логика Signals, роутинг и дизайн MedCore.',
+      task: '',
       photo: 'https://avatars.githubusercontent.com/u/187541006?s=400&u=f811c719f219e1e2476819ee770cfa170d4019ea&v=4' 
     },
     { 
       name: 'Kamila Muralinova', 
       role: 'Backend Developer (Django), Frontend', 
-      task: 'Проектирование базы данных, API эндпоинты, JWT аутентификация.',
+      task: '',
       photo: 'https://avatars.githubusercontent.com/u/195541795?v=4' 
+    },
+    {
+      name: 'Mister X',
+      role: '?',
+      task: '',
+      photo: 'https://i.ytimg.com/vi/2YckI8gW7NQ/maxresdefault.jpg'
     }
   ];
 

@@ -7,6 +7,7 @@ import { Appointment } from '../interfaces/appointment';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './admin-appointments.html',
+   styleUrl: './admin-appointments.css'
 })
 export class AdminAppointmentsComponent implements OnInit {
   appointments: Appointment[] = [];

@@ -1,61 +1,61 @@
 .organizations-page {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    color: white;
-    padding: 40px 20px;
-  }
-  
-  .organizations-card {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 24px;
-    padding: 32px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  }
-  
-  .organizations-card h1 {
-    color: #60a5fa;
-    margin-bottom: 24px;
-  }
-  
-  .organization-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-  }
-  
-  .organization-item {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 18px;
-    padding: 20px;
-  }
-  
-  .organization-item h3 {
-    margin-top: 0;
-  }
-  
-  .org-description {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 4px;
-  }
-  
-  .organization-item button {
-    margin-top: 12px;
-    background: #60a5fa;
-    color: #0c1a2e;
-    border: none;
-    border-radius: 12px;
-    padding: 10px 16px;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  
-  .organization-item button:hover {
-    background: #93c5fd;
-  }
-  
-  .error {
-    color: #fca5a5;
-  }
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  padding: 40px 20px;
+}
+
+.organizations-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.organizations-card h1 {
+  color: #60a5fa;
+  margin-bottom: 24px;
+}
+
+.organization-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.organization-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.organization-item h3 {
+  margin-top: 0;
+}
+
+.org-description {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 4px;
+}
+
+.organization-item button {
+  margin-top: 12px;
+  background: #60a5fa;
+  color: #0c1a2e;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.organization-item button:hover {
+  background: #93c5fd;
+}
+
+.error {
+  color: #fca5a5;
+}

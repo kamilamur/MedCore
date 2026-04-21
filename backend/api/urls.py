@@ -10,7 +10,6 @@ from .views import (
     ProfileView,
     send_team_application,
     OrganizationListView
-
 )
 urlpatterns = [
     path('doctors/', DoctorListView.as_view(), name='doctors-list'),

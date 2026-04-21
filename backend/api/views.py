@@ -16,6 +16,7 @@ from rest_framework import status
 from django.contrib.auth import authenticate
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
+
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def login_view(request):
@@ -62,7 +63,6 @@ def register_view(request):
             {"message": "User created successfully"},
             status=status.HTTP_201_CREATED
         )
-
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ProfileView(APIView):
@@ -136,6 +136,7 @@ class QueueListView(APIView):
 
         serializer = QueueEntrySerializer(entry)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 class QueueEntryDeleteView(APIView):
     permission_classes = [AllowAny]
     def delete(self, request, entry_id):
@@ -160,6 +161,7 @@ class QueueEntryDeleteView(APIView):
                 {'error': 'Queue entry not found'},
                 status=status.HTTP_404_NOT_FOUND
             )
+            
 class QueueOverviewView(APIView):
     permission_classes = [IsAuthenticated]
     def get(self, request):
@@ -177,7 +179,6 @@ def send_team_application(request):
     name = request.data.get('name')
     email = request.data.get('email')
     message = request.data.get('message')
-
     send_mail(
         f'Application from {name}',
         f'Message: {message}\nemail: {email}',
@@ -185,5 +186,4 @@ def send_team_application(request):
         ['admin@medcore.com'],
         fail_silently=False,
     )
-    
     return Response({"message": "Sent to console!"}, status=200)

@@ -13,3 +13,14 @@ class AppointmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Appointment
         fields = '__all__'
+        read_only_fields = [
+            'patient',
+            'created_at',
+            'cancelled_by',
+            'patient_username',
+            'doctor_first_name',
+            'doctor_last_name',
+            'doctor_specialization',
+            'doctor_room_number',
+            'cancelled_by_username',
+        ]

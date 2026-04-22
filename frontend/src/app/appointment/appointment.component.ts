@@ -57,7 +57,14 @@ export class AppointmentComponent implements OnInit {
       this.errorMessage = 'Select time.';
       return;
     }
-
+    console.log('selectedDoctorId:', this.selectedDoctorId);
+console.log('appointmentDate:', this.appointmentDate);
+console.log('appointmentTime:', this.appointmentTime);
+console.log('payload:', {
+  doctor: this.selectedDoctorId,
+  appointment_date: this.appointmentDate,
+  appointment_time: this.appointmentTime
+});
     this.appointmentService.createAppointment({
       doctor: this.selectedDoctorId,
       appointment_date: this.appointmentDate,
